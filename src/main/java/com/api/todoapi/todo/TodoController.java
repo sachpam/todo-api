@@ -1,10 +1,13 @@
 package com.api.todoapi.todo;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +28,13 @@ public class TodoController {
     public List<Todo> getTodos(){
         return todoService.getTodos();
     }
+
+    @PostMapping
+    public boolean addTodo(@RequestBody Todo todo){
+        todoService.addNewTodo(todo);
+        return true;
+        
+    }
+
     
 }

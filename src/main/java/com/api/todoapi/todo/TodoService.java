@@ -18,6 +18,11 @@ public class TodoService {
     public List<Todo> getTodos() {
         return todoRepository.findAll();
     }
+  
+    public void addNewTodo(Todo todo) {
+		todoRepository.save(todo);
+        
+	}
 
     
     
